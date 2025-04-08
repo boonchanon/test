@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <title>💝 Surprise for You 💝</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffcce0);
+      font-family: 'Quicksand', sans-serif;
+      color: #ff4d88;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 25px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      text-align: center;
+      color: #ff3385;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Kanit', sans-serif;
+    }
+
+    .message-boxes button {
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .message-boxes button:hover {
+      background-color: #ff3385;
+      box-shadow: 0 6px 15px rgba(255, 105, 180, 0.6);
+    }
+
+    .message {
+      display: none;
+      background-color: #fff0f5;
+      padding: 1rem;
+      border-radius: 15px;
+      margin-top: 1rem;
+      width: fit-content;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      font-size: 1.1rem;
+      color: #ff3385;
+    }
+
+    .input-field {
+      width: 130px;
+      height: 50px;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      border: 2px solid #ff66a3;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: 0.3s;
+      background-color: #fff0f5;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .input-field:focus {
+      border-color: #ff3385;
+      background-color: #fff;
+      outline: none;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    }
+
+    /* Center the content of the page */
+    .section p {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ff3385;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 250px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+    }
+
+    .carousel-images {
+      display: flex;
+      width: 5000%;
+      animation: slide 250s infinite linear;
+    }
+
+    .carousel-images img {
+      width: 200px;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s ease;
+    }
+
+    .carousel-images img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Audio Section */
+    .section audio {
+      display: block;
+      margin: 1rem auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+
+    /* Add animated hearts */
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 4rem;
+      animation: float 3s infinite;
+      transform: translate(-50%, -50%);
+      color: #ff3385;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+      50% {
+        transform: translate(-50%, -50%) translateY(-20px);
+      }
+      100% {
+        transform: translate(-50%, -50%) translateY(0);
+      }
+    }
+
+    .heart-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .heart-container .heart {
+      position: absolute;
+      animation: heart-explode 1.5s ease-out forwards;
+    }
+
+    @keyframes heart-explode {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x), var(--y)) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+    <audio id="bgMusic" src="music.mp3" autoplay loop></audio>
+  <div class="container">
+
+    <!-- 🎁 การ์ดอวยพร -->
+    <div class="section" id="section1">
+      <h2>💝 ถึงน้องชมพู่ของพี่ 💝</h2>
+      <p>
+        สุขสันต์วันเกิดนะคะ!<br>
+        ขอให้วันนี้เต็มไปด้วยรอยยิ้ม ความรัก และความสุข เเละใจดีกับหนูนะ<br>
+        พี่มาร์ครักหนูที่สุดเลย 💞
+      </p>
+    </div>
+
+    <!-- 📬 กล่องข้อความเปิดทีละอัน -->
+    <div class="section message-boxes">
+      <h2>🎁 กล่องข้อความ</h2>
+
+      <!-- กรอกเลข 4 หลัก -->
+      <label for="input1">กรอกเลข 4 หลักเพื่อเปิดกล่อง</label>
+      <input type="text" id="input1" class="input-field" maxlength="4" oninput="validateInput('input1')">
+      <br>
+      <button onclick="checkInput(1)">เปิดกล่อง</button>
+      <div class="message" id="msg1">💌 พี่มาร์คยินดีกับอายุ 19 ปี ของหนูนะ เเละก็ขอให้หนูเป็นหนูในทุกๆวัน เเละก็เป็นเด็กดีของเเม่นะ หนูตั้งใจเรียนอยู่เเล้ว เเต่ขอให้มีความสุขมากๆ ขออะไรให้ได้สิ่งนั้นนะ
+        เเละขอให้ประสบความสำเร็จในรั้วมหาลัยเลยยย ไม่ต้องห่วงนะ ถ้ากลัวอะไรเครียดอะไรก็บอกพี่ได้ตลอดเลย ข้างๆหนูมีพี่นะ  ของขวัญเว็บนี้อาจจะไม่สวยมากเพราะเวลามันน้อย เเต่พี่จริงใจที่จะทำให้นะครับ รักนะครับ อุอุ 💞
+      </div>
+      <div class="heart-container" id="hearts"></div>
+
+      <!-- Add animated hearts -->
+      <div class="heart"></div>
+
+    </div>
+
+    <!-- 📸 รูปภาพเลื่อนอัตโนมัติ -->
+    <div class="section">
+      <h2>💖 รูปภาพคนสวย 💖</h2>
+      <div class="carousel">
+        <div class="carousel-images">
+          <!-- เพิ่มรูปภาพที่คุณต้องการที่นี่ -->
+          <img src="./img/1.jpg" alt="Image 1">
+          <img src="./img/2.jpg" alt="Image 2">
+          <img src="./img/3.jpg" alt="Image 3">
+          <img src="./img/4.jpg" alt="Image 4">
+          <img src="./img/5.jpg" alt="Image 5">
+          <img src="./img/6.jpg" alt="Image 6">
+          <img src="./img/7.jpg" alt="Image 7">
+          <img src="./img/8.jpg" alt="Image 8">
+          <img src="./img/9.jpg" alt="Image 9">
+          <img src="./img/10.jpg" alt="Image 10">
+          <img src="./img/11.jpg" alt="Image 11">
+          <img src="./img/12.jpg" alt="Image 12">
+          <img src="./img/13.jpg" alt="Image 13">
+          <img src="./img/14.jpg" alt="Image 14">
+          <img src="./img/15.jpg" alt="Image 15">
+          <img src="./img/16.jpg" alt="Image 16">
+          <img src="./img/17.jpg" alt="Image 17">
+          <img src="./img/18.jpg" alt="Image 18">
+          <img src="./img/19.jpg" alt="Image 19">
+          <img src="./img/20.jpg" alt="Image 20">
+          <img src="./img/21.jpg" alt="Image 21">
+          <img src="./img/22.jpg" alt="Image 22">
+          <img src="./img/23.jpg" alt="Image 23">
+          <img src="./img/24.jpg" alt="Image 24">
+          <img src="./img/25.jpg" alt="Image 25">
+          <img src="./img/26.jpg" alt="Image 26">
+          <img src="./img/27.jpg" alt="Image 27">
+          <img src="./img/28.jpg" alt="Image 28">
+          <img src="./img/29.jpg" alt="Image 29">
+          <img src="./img/30.jpg" alt="Image 30">
+          <img src="./img/31.jpg" alt="Image 31">
+          <img src="./img/32.jpg" alt="Image 32">
+          <img src="./img/33.jpg" alt="Image 33">
+          <img src="./img/34.jpg" alt="Image 34">
+          <img src="./img/35.jpg" alt="Image 35">
+          <img src="./img/36.jpg" alt="Image 36">
+          <img src="./img/37.jpg" alt="Image 37">
+          <img src="./img/38.jpg" alt="Image 38">
+          <img src="./img/39.jpg" alt="Image 39">
+          <img src="./img/40.jpg" alt="Image 40">
+          <img src="./img/41.jpg" alt="Image 41">
+          <img src="./img/42.jpg" alt="Image 42">
+          <img src="./img/43.jpg" alt="Image 43">
+          <img src="./img/44.jpg" alt="Image 44">
+          <img src="./img/45.jpg" alt="Image 45">
+          <img src="./img/46.jpg" alt="Image 46">
+          <img src="./img/47.jpg" alt="Image 47">
+          <img src="./img/48.jpg" alt="Image 48">
+          <img src="./img/49.jpg" alt="Image 49">
+          <img src="./img/50.jpg" alt="Image 50">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // เลขที่ต้องกรอกเพื่อเปิดกล่อง
+    const correctNumbers = {
+      1: "0904"
+    };
+
+    // ตรวจสอบการกรอกเลข
+    function checkInput(boxNumber) {
+      const inputField = document.getElementById("input" + boxNumber);
+      const userInput = inputField.value;
+
+      if (userInput === correctNumbers[boxNumber]) {
+        document.getElementById("msg" + boxNumber).style.display = 'block';
+        showHearts();
+      } else {
+        alert("กรุณากรอกเลขให้ถูกต้อง!");
+      }
+    }
+
+    // ตรวจสอบตัวเลขที่กรอก
+    function validateInput(inputId) {
+      let inputField = document.getElementById(inputId);
+      inputField.value = inputField.value.replace(/[^0-9]/g, '');
+    }
+
+    function showHearts() {
+      const heartContainer = document.getElementById("hearts");
+
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "💖";
+
+        // กำหนดตำแหน่งให้หัวใจพุ่ง
+        heart.style.setProperty('--x', `${Math.random() * 200 - 100}px`);
+        heart.style.setProperty('--y', `${Math.random() * 200 - 100}px`);
+
+        heartContainer.appendChild(heart);
+
+        // ลบหัวใจหลังจากการเคลื่อนไหว
+        setTimeout(() => {
+          heart.remove();
+        }, 1500);
+      }
+    }
+  </script>
+
+</body>
+
+</html>
