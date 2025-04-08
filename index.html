@@ -1,228 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกมบวกเลข </title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Kanit:wght@400;600&display=swap');
+  <meta charset="UTF-8">
+  <title>HBD Surprise 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #ffccdd);
+      font-family: 'Kanit', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        body {
-            font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #00bcd4, #0288d1);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 3rem;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(8px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            width: 90%;
-            max-width: 450px;
-            animation: fadeIn 1s ease-in-out;
-            position: relative;
-        }
+    h1 {
+      font-size: 2.5rem;
+      color: #ff66a3;
+    }
 
-        h1,
-        h2 {
-            color: #e1f5fe;
-            font-family: 'Great Vibes', cursive;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #ff66a3;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-        p {
-            font-family: 'Kanit', sans-serif;
-            font-size: 1.3rem;
-            margin: 20px 0;
-            line-height: 1.6;
-            color: #ffffff;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        input {
-            font-family: 'Kanit', sans-serif;
-            font-size: 1.2rem;
-            padding: 14px 18px;
-            border-radius: 12px;
-            width: 75%;
-            border: 2px solid #00796b;
-            background-color: #ffffff;
-            color: #00796b;
-            transition: background-color 0.3s ease;
-        }
-
-        input:focus {
-            background-color: #b3e5fc;
-            outline: none;
-            border-color: #00bcd4;
-        }
-
-        button {
-            font-family: 'Kanit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: white;
-            background-color: #00796b;
-            border: none;
-            border-radius: 25px;
-            padding: 15px 30px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #004d40;
-            transform: scale(1.05);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    .btn:hover {
+      background-color: #ff3385;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div id="game-screen">
-            <h1>เกมบวกเลข</h1>
-            <p>คุณมี <span id="health">3</span> ชีวิต</p>
-            <p>กรุณาตอบคำถามนี้!</p>
-            <h2 id="question-text">105 x 56 = ?</h2>
-            <input type="number" id="answer" placeholder="กรอกคำตอบ...">
-            <button onclick="submitAnswer()">ตอบคำถาม</button>
-        </div>
+  <audio id="bgMusic" src="music.mp3" autoplay loop></audio>
 
-        <div id="result-screen" class="hidden">
-            <h2 id="result-title">😭 คุณแพ้แล้ว! 😭</h2>
-            <p id="result-text"></p>
-            <button onclick="bonus()">รับโบนัสพิเศษ! 🎁</button> 
-        </div>
+  <div class="container">
+    <h1>9.4.2025</h1>
+    <h1>สุขสันต์วันเกิดนะคะ💝</h1>
+    <p>ขอให้วันนี้เป็นวันพิเศษที่สุดสำหรับหนูนะ</p>
+    <button class="btn" onclick="window.location.href='surprise.html'">กดสิ💝</button>
+  </div>
 
-        <div id="fan-screen" class="hidden">
-            <h2 style="font-size: large;">💖 เป็นเเฟนกันมั้ย 💖</h2>
-            <button onclick="answerYes()">ตกลง 💖</button>
-            <button onclick="answerYes()" style="background-color: blueviolet;">ตกลง, เหมือนกันแค่คนละสี 💖</button>
-        </div>
-
-        <div id="start-date-screen" class="hidden">
-            <h2 style="font-size: medium;">💖 วันที่เราเริ่มคบกัน 💖</h2>
-            <p id="start-date-text"></p>
-        </div>
-    </div>
-
-    <script>
-        let health = 3; 
-        const questions = [
-            { question: "125 + 385", answer: 510 },
-            { question: "672 - 258", answer: 414 },
-            { question: "892 + 614", answer: 1506 },
-            { question: "975 - 460", answer: 515 },
-            { question: "765 + 487", answer: 1252 }
-        ];
-        let currentQuestion = 0;
-
-        function submitAnswer() {
-            const answerInput = document.getElementById("answer");
-            const questionText = document.getElementById("question-text");
-            const healthDisplay = document.getElementById("health");
-
-            const userAnswer = parseInt(answerInput.value.trim());
-
-            if (isNaN(userAnswer)) {
-                alert("กรุณากรอกคำตอบ!");
-                return;
-            }
-
-            if (userAnswer !== questions[currentQuestion].answer) {
-                if (health > 1) {
-                    health--; 
-                    healthDisplay.textContent = health;
-                    currentQuestion++;
-                    if (currentQuestion < questions.length) {
-                        questionText.textContent = `${questions[currentQuestion].question} = ?`;
-                        answerInput.value = "";
-                    } else {
-                        endGame();
-                    }
-                } else {
-                    endGame();
-                }
-            } else {
-                alert("คำตอบถูกต้อง!");
-                currentQuestion++;
-                if (currentQuestion < questions.length) {
-                    questionText.textContent = `${questions[currentQuestion].question} = ?`;
-                    answerInput.value = "";
-                } else {
-                    alert("คุณชนะแล้ว!");
-                }
-            }
-        }
-
-        function endGame() {
-            document.getElementById("game-screen").classList.add("hidden");
-            document.getElementById("result-screen").classList.remove("hidden");
-            document.getElementById("result-text").innerHTML = `คุณแพ้แล้ว!<br>🎁 แต่คุณยังสามารถรับโบนัสพิเศษ!`;
-        }
-
-        function bonus() {
-            let bonusHealth = Math.floor(Math.random() * 3) + 3; 
-            health = bonusHealth;
-            document.getElementById("health").textContent = health; 
-
-            setTimeout(() => {
-                document.getElementById("result-screen").classList.add("hidden");
-                document.getElementById("fan-screen").classList.remove("hidden");
-            }, 1500);
-        }
-
-        function answerYes() {
-            const today = new Date();
-            const startDate = today.toLocaleDateString(); 
-
-            document.getElementById("fan-screen").classList.add("hidden");
-            document.getElementById("start-date-screen").classList.remove("hidden");
-            document.getElementById("start-date-text").innerText = `เราคบกันตั้งแต่วันที่ ${startDate}`;
-        }
-
-        function restartGame() {
-            health = 3; 
-            currentQuestion = 0;
-            document.getElementById("health").textContent = health;
-            document.getElementById("question-text").textContent = `${questions[currentQuestion].question} = ?`;
-            document.getElementById("game-screen").classList.remove("hidden");
-            document.getElementById("result-screen").classList.add("hidden");
-            document.getElementById("fan-screen").classList.add("hidden");
-            document.getElementById("start-date-screen").classList.add("hidden");
-        }
-    </script>
+  <script>
+    // พยายามให้เล่นทันทีถ้าเบราว์เซอร์อนุญาต
+    window.addEventListener("load", () => {
+      const music = document.getElementById("bgMusic");
+      music.volume = 0.2; 
+      music.play().catch(() => {
+        // ถ้าโดนบล็อก ให้รอคลิกแล้วค่อยเล่น
+        document.addEventListener('click', () => {
+          music.play();
+        }, { once: true });
+      });
+    });
+  </script>
 </body>
 
 </html>
